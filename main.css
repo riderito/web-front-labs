@@ -24,7 +24,7 @@ main {
 footer {
     background-color: rgb(35, 35, 35);
     color: rgb(253, 253, 253);
-    position: absolute;
+    position: relative;
 	left: 0;
 	bottom: 0;
 	width: 100%;
