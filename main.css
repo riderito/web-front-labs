@@ -8,6 +8,7 @@ body {
 a {
     color: rgb(223, 173, 67);
     text-decoration: none;
+    transition: 1s 2s;
 }
 a:link {
     color: rgb(255, 119, 0);
@@ -22,6 +23,7 @@ a:hover {
     padding: 5px;
     text-decoration: underline;
     border-radius: 14px;
+    transition: 0.3s;
 }
 a:active {
     color: rgb(223, 173, 67);
