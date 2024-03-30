@@ -9,6 +9,23 @@ a {
     color: rgb(223, 173, 67);
     text-decoration: none;
 }
+a:link {
+    color: rgb(255, 119, 0);
+}
+a:visited {
+    text-shadow: #FC0 2px 0 10px;
+    text-decoration: wavy;
+}
+a:hover {
+    color: white;
+    background-color: black;
+    padding: 5px;
+    text-decoration: underline;
+    border-radius: 14px;
+}
+a:active {
+    color: rgb(223, 173, 67);
+}
 h1 {
     font-size: 35px;
 }
