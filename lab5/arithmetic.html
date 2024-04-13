@@ -27,6 +27,33 @@
             let deviz = '\n\nПравила жизни на этом сайте (иначе бан):\nПравило № 1. Жи-ши пиши от души.\nПравило № 2. Перед тем как ловить ртом снежинки, убедись, что все птицы улетели на юг.\nПравило № 3. Если будут проблемы – не звони.\nПравило № 4. Если тебе где-то не рады в рваных носках, то и в целых туда идти не стоит.\nПравило № 5. Если на кассе говорят, что принимают любую карту, должны брать и валет бубновый!\nПравило № 6. Хороший человек плохой воздух в себе держать не будет.\nПравило № 7. Лучше один раз упасть, чем сто раз упасть.\nПравило № 8. Главное – не сдавайся, сдаются квартиры.';
             alert(hello + deviz);
         }
+        function showDiff() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert('Разность между '+ a +' и '+ b +' равна ' + result);
+        }
+        function showPro() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert('Произведение '+ a +' и '+ b +' равно ' + result);
+        }
+        function showSep() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a / b;
+            alert('Деление '+ a +' на '+ b +' равно ' + result);
+        }
     </script>
     <style>
         footer {
@@ -47,6 +74,7 @@
             border-radius: 10px;
             display: inline-block;
             cursor: pointer;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -59,7 +87,10 @@
         <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
         <label>Второе число: <input type="number" value="7891" id="numberB"></label><br><br>
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
-        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div><br>
+        <div class="message" onclick="showDiff()">Найти разность чисел</div><br>
+        <div class="message" onclick="showPro()">Найти произведение</div><br>
+        <div class="message" onclick="showSep()">Найти деление</div>
     </main>
 
     <footer ondblclick="Hello()">
