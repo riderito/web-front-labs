@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Круги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function hiddenBlock(idOfblock) {
+            let block = document.getElementById(idOfblock);
+            block.style.transition = "opacity 0.3s, width 0.5s, height 0.5s";
+            block.style.width = '0';
+            block.style.height = '0';
+            block.style.opacity = '0';
+        }
+        function returnBlocks() {
+            let blocks = document.getElementsByClassName('blocks');
+            for (let i = 0; i < blocks.length; i++) {
+            blocks[i].style.opacity = '1';
+            blocks[i].style.width = '50px';
+            blocks[i].style.height = '50px';
+            }
+        }
+    </script>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 30px;
+            border: 2px rgb(255, 192, 33) solid;
+            color: rgb(255, 192, 33);
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        button {
+            width: 250px;
+            height: 40px;
+            cursor: pointer;
+            background-color: rgb(255, 192, 33);
+            color: white;
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 15px;
+            text-transform: uppercase;
+            position: absolute;
+            top: 400px;
+            left: 640px;
+        }
+        #a {
+            background-color: blue;
+            top: 300px;
+            left: 630px;
+        }
+        #b {
+            background-color: rgb(255, 72, 0);
+            top: 167px;
+            left: 777px;
+        }
+        #c {
+            background-color: rgb(255, 0, 212);
+            top: 253px;
+            left: 960px;
+        }
+        #d {
+            background-color: rgb(0, 255, 38);
+            top: 130px;
+            left: 530px;
+        }
+        #e {
+            background-color: rgb(167, 255, 192);
+            top: 70px;
+            left: 900px;
+        }
+        #f {
+            background-color: rgb(157, 81, 81);
+            top: 200px;
+            left: 480px;
+        }
+        #g {
+            background-color: rgb(78, 78, 152);
+            top: 200px;
+            left: 630px;
+        }
+        #h {
+            background-color: rgb(255, 255, 255);
+            top: 100px;
+            left: 675px;
+        }
+        #i {
+            background-color: rgb(33, 8, 92);
+            top: 253px;
+            left: 786px;
+        }
+        #j {
+            background-color: rgb(65, 135, 74);
+            top: 145px;
+            left: 886px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main>
+        <div id="a" class="blocks" onclick="hiddenBlock('a')">1</div>
+        <div id="b" class="blocks" onclick="hiddenBlock('b')">2</div>
+        <div id="c" class="blocks" onclick="hiddenBlock('c')">3</div>
+        <div id="d" class="blocks" onclick="hiddenBlock('d')">4</div>
+        <div id="e" class="blocks" onclick="hiddenBlock('e')">5</div>
+        <div id="f" class="blocks" onclick="hiddenBlock('f')">6</div>
+        <div id="g" class="blocks" onclick="hiddenBlock('g')">7</div>
+        <div id="h" class="blocks" onclick="hiddenBlock('h')">8</div>
+        <div id="i" class="blocks" onclick="hiddenBlock('i')">9</div>
+        <div id="j" class="blocks" onclick="hiddenBlock('j')">10</div>
+        <button onclick="returnBlocks()">Вернуть круги</button>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
