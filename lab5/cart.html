@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Корзина товаров</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showAllMoney() {
+            let lays = document.getElementById('lays');
+            let nachos = document.getElementById('nachos');
+            let cheese = document.getElementById('cheese');
+            let curd = document.getElementById('curd');
+
+            let a = parseInt(lays.value);
+            let b = parseInt(nachos.value);
+            let c = parseInt(cheese.value);
+            let d = parseInt(curd.value);
+
+            let AllMoney = document.getElementById('AllMoney');
+
+            let result = (a * 149) + (b * 99) + (c * 219) + (d * 179);
+
+            if (isNaN(result)) {
+                    AllMoney.innerHTML ='Ошибка! Введите числа';
+                } else {
+                        AllMoney.innerHTML ='Общая цена: ' + result + ' рублей';
+                    }
+            }
+        function showClean() {
+            AllMoney.innerHTML ='';
+            lays.value = "";
+            nachos.value = "";
+            cheese.value = "";
+            curd.value = "";
+        }
+    </script>
+    <style>
+        .cont {
+            width: 350px;
+            border: 4px rgb(250, 122, 122) solid;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 auto;
+            box-shadow: 8px 5px 5px rgb(234, 170, 170);
+            background: linear-gradient(to left top, rgb(160, 60, 188), rgb(81, 60, 175));
+            color: white;
+        }
+        input, button {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    
+    <main>
+        <div class="cont">
+            <h1 style="font-size: 30px;">Корзина товаров</h1>
+            <label>Чипсы Lay's (149 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="Сколько пачек?" id="lays"></label><br>
+            <label>Начос Delicados (99 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="Кол-во упаковок" id="nachos"></label><br>
+            <label>Сыр Mozzarella Galbani (219 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="Сыр надо?" id="cheese"></label><br>
+            <label>Творог 5% Томское молоко (179 р/шт):<br> <input type="number" min="0" onkeydown="return event.key !== '-';"
+                value="1" placeholder="В одной штуке 500гр" id="curd"></label><br>
+            <button onclick="showAllMoney()">Рассчитать</button>
+            <button onclick="showClean()">Очистить</button>
+            <div id="AllMoney"></div>
+        </div>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
