@@ -17,11 +17,21 @@
             padding: 10px;
             border-radius: 30px;
         }
-        div.game div, {
+        div.game div {
             margin: 10px;
         }
         div.forpad input, button, div {
             margin: 10px;
+        }
+        .rules {
+            width: 600px;
+            margin: 10px auto;
+            background-color: rgb(230, 221, 255);
+            color: black;
+            border-radius: 20px;
+        }
+        li {
+            font-size: 15px;
         }
     </style>
     <script>
@@ -67,6 +77,15 @@
             document.getElementById('user-number').value = null;
             count = 0;
         }
+        let buttons = document.getElementsByClassName('butforrule');
+        function showRules() {
+            buttons[0].style.display = 'none';
+            buttons[1].style.display = 'block';
+        }
+        function hiddenRules() {
+            buttons[1].style.display = 'none';
+            buttons[0].style.display = 'block';
+        }
     </script>
 </head>
 <body>
@@ -101,6 +120,24 @@
             </div>
             <div>
                 <button onclick="again(startGame())">Сыграть еще раз</button>
+            </div>
+        </div>
+        <div class="rules">
+            <div class="butforrule">
+                <button onclick="showRules()">Показать правила игры</button>
+            </div>
+            <div class="butforrule" style="display: none; padding-bottom: 15px;">
+                <button onclick="hiddenRules()">Скрыть правила игры</button>
+                <ol type="A">
+                    <li>Сначала нажмите на кнопку "Сыграть в игру"</li>
+                    <li>В поле ввода введите число от 1 до 100</li>
+                    <li>Для проверки, то ли это число, нажмите на "Угадать"</li>
+                    <li>Числа вне диапазона не будут приниматься системой</li>
+                    <li>Любые значения кроме чисел запрещены для ввода</li>
+                    <li>При вводе числа меньше или больше загаданного<br>выводится соответствующее сообщение</li>
+                    <li>При вводе загаданного числа выводиться сообщение о победе</li>
+                    <li>После этого вы можете начать игру заново с новым числом</li>
+                </ol>
             </div>
         </div>
     </main>
