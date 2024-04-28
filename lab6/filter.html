@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function filter() {
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+
+            if (color == 'Чёрный' && type == 'Футболка') {
+                wear.src = 'black-f.jpg';
+            }
+            else if (color == 'Жёлтый' && type == 'Футболка') {
+                wear.src = 'yellow-f.jpg';
+            }
+            else if (color == 'Белый' && type == 'Футболка') {
+                wear.src = 'white-f.jpg';
+            }
+            else if (color == 'Чёрный' && type == 'Пальто') {
+                wear.src = 'black-p.jpg';
+            }
+            else if (color == 'Жёлтый' && type == 'Пальто') {
+                wear.src = 'yellow-p.jpg';
+            }
+            else if (color == 'Белый' && type == 'Пальто') {
+                wear.src = 'white-p.jpg';
+            }
+            else if (color == 'Чёрный' && type == 'Шорты') {
+                wear.src = 'black-sh.jpg';
+            }
+            else if (color == 'Жёлтый' && type == 'Шорты') {
+                wear.src = 'yellow-sh.jpg';
+            }
+            else {
+                wear.src = 'white-sh.jpg';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    
+    <main>
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Чёрный</option>
+                <option>Жёлтый</option>
+                <option>Белый</option>
+            </select><br>
+
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Пальто</option>
+                <option>Шорты</option>
+            </select><br>
+
+            <button onclick="filter()">ОК</button><br>
+
+            <img id="wear" height="600px">
+        </div>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
