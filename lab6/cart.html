@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function showMoney() {
+            let balance = parseFloat(document.getElementById('balance').value);
+
+            let milk = parseInt(document.getElementById('milk').value) || 0;
+            let bread = parseInt(document.getElementById('bread').value) || 0;
+            let banana = parseFloat(document.getElementById('banana').value) || 0;
+            let cup = parseInt(document.getElementById('cup').value) || 0;
+            let water = parseInt(document.getElementById('water').value) || 0;
+            let candle = parseInt(document.getElementById('candle').value) || 0;
+            let pepper = parseInt(document.getElementById('pepper').value) || 0;
+
+            let output = document.getElementById('output');
+            let message = document.getElementById('message');
+
+            output.innerHTML = '';
+            message.innerHTML = '';
+
+            if (milk < 0 || bread < 0 || banana < 0 || cup < 0 || water < 0 || candle < 0 || pepper < 0) {
+                output.innerHTML = 'Ошибка! Количество какого-то из товаров отрицательное';
+            }
+            else if (milk + bread + banana + cup + water + candle + pepper == 0) {
+                output.innerHTML = 'Ошибка! Нужно выбрать хотя бы один товар';
+            }
+            else {
+                let sum = ((milk * 89) + (bread * 70) + (banana * 159) +
+                (cup * 199) + (water * 49) + (candle * 69) + (pepper * 19)).toFixed(2);
+                output.innerHTML = 'Итого: ' + sum + ' рублей';
+                if (balance < sum) {
+                message.innerHTML = 'На вашем счёте недостаточно средств!';
+                message.style.color = 'red';
+                }
+                else {
+                let dif = (balance - sum).toFixed(2);
+                message.innerHTML = 'Ваш заказ успешно оформлен! (Остаток: ' + dif + ')';
+                message.style.color = 'green';
+                }
+            }
+        }
+    </script>
+    <style>
+        table {
+            border: 5px rgb(255, 195, 44) solid;
+            box-shadow: 3px 0px 5px rgb(255, 195, 44);
+            margin: 9px 0;
+            width: 550px;
+            height: 220px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        #balance {
+            border: 4px rgb(255, 195, 44) solid;
+            box-shadow: 3px 0px 10px rgb(255, 195, 44);
+        }
+        .but {
+            margin: 12px auto;
+            width: 120px;
+        }
+        button {
+            border: 0;
+            box-shadow: 3px 0px 10px rgb(255, 195, 44);
+            background-color: rgb(255, 195, 44);
+            color: white;
+            font-weight: bold;
+            width: 120px;
+            height: 35px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover {
+            color: rgb(255, 195, 44);
+            background-color: white;
+            border: 3px rgb(255, 195, 44) solid;
+            transition: 0.5s;
+        }
+        #message {
+            font-weight: bold;
+            font-style: italic;
+        }
+        #output {
+            font-weight: bold;
+            color: rgb(255, 195, 44);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    
+    <main>
+        <div style="margin: 150px auto; width: 550px;">
+            <div>
+                Мой баланс:
+                <input type="number" id="balance" value="" onkeydown="return event.key !== '-';">
+            </div>
+            <div style="margin: 10px 0;">
+                <table border="1">
+                    <tr>
+                        <th></th>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Молоко Верх-Ирмень</td>
+                        <td>89 р</td>
+                        <td><input type="number" id="milk" value="" min="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Чиабатта</td>
+                        <td>70 р</td>
+                        <td><input type="number" id="bread" value="" min="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Бананы (в кг)</td>
+                        <td>159 р</td>
+                        <td><input type="number" id="banana" value="" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Кружка</td>
+                        <td>199 р</td>
+                        <td><input type="number" id="cup" value="" min="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Вода Карачинская</td>
+                        <td>49 р</td>
+                        <td><input type="number" id="water" value="" min="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Сырок Свитлогорье</td>
+                        <td>69 р</td>
+                        <td><input type="number" id="candle" value="" min="0" step="1"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Перец черный молотый</td>
+                        <td>19 р</td>
+                        <td><input type="number" id="pepper" value="" min="0" step="1"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="but">
+                <button onclick="showMoney()">ОК</button>
+            </div>
+
+                <div id="output"></div>
+                <div id="message"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
