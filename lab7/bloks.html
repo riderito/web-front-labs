@@ -20,8 +20,27 @@
             newBlock.style.display = 'inline-block';
             newBlock.style.boxShadow = '10px 5px 5px rgb(100, 100, 100)';
 
-
             document.querySelector('main').appendChild(newBlock);
+        }
+
+        function addNewBlocks() {
+            let main = document.querySelector('main');
+            let input = document.getElementById('number');
+            let number = parseInt(input.value);
+            for(let i=0; i<number; i++) {
+                let newBlock = document.createElement('div');
+                let ww = 180 + i*20;
+                newBlock.style.backgroundColor = 'orange';
+                newBlock.style.height = '50px';
+                newBlock.style.width = `${ww}px`;
+                newBlock.style.margin = '10px 10px';
+                newBlock.style.border = '4px black solid';
+                newBlock.style.borderRadius = '5px';
+                newBlock.style.boxShadow = '5px 5px 5px rgb(100, 100, 100)';
+                newBlock.innerHTML = `Блок №${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+
+                main.appendChild(newBlock);
+            }
         }
     </script>
 </head>
@@ -32,6 +51,9 @@
     
     <main>
         <button style="display: block;" onclick="addNewBlock()">Добавить блок</button>
+        <div style="display: block; margin: 10px 0;">Введите нужное кол-во блоков: <input type="number" min="1" max="100"
+            value="" onkeydown="return event.key !== '-';" id="number"></div>
+        <button style="display: block; margin: 10px 0;" onclick="addNewBlocks()">Добавить блоки</button>
     </main>
 
     <footer>
