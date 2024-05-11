@@ -33,7 +33,7 @@
                 newBlock.style.backgroundColor = 'orange';
                 newBlock.style.height = '50px';
                 newBlock.style.width = `${ww}px`;
-                newBlock.style.margin = '10px 10px';
+                newBlock.style.margin = '10px 0';
                 newBlock.style.border = '4px black solid';
                 newBlock.style.borderRadius = '5px';
                 newBlock.style.boxShadow = '5px 5px 5px rgb(100, 100, 100)';
@@ -61,7 +61,7 @@
                 main.appendChild(newBlock);
             }
         }
-        
+
         function add10_m80() {
             let main = document.querySelector('main');
             for(let i=10; i>=-80; i-=3) {
@@ -82,6 +82,26 @@
                 main.appendChild(newBlock);
             }
         }
+
+        function opac() {
+            let main = document.querySelector('main');
+            for(let i=1; i<=10; i++) {
+                let newBlock = document.createElement('div');
+                let op = i*10;
+                
+                newBlock.style.opacity = `${op}%`;
+                newBlock.style.backgroundColor = 'violet';
+                newBlock.style.height = '40px';
+                newBlock.style.width = '120px';
+                newBlock.style.margin = '10px 0';
+                newBlock.style.color = 'black';
+                newBlock.innerHTML = `${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.lineHeight = '40px';
+
+                main.appendChild(newBlock);
+            }
+        }
     </script>
 </head>
 <body>
@@ -95,7 +115,8 @@
             value="" onkeydown="return event.key !== '-';" id="number"></div>
         <button style="display: block; margin: 10px 0;" onclick="addNewBlocks()">Добавить блоки</button>
         <button style="display: block; margin: 10px 0;" onclick="add20_50()">20 => 50</button>
-        <button style="display: block;" onclick="add10_m80()">10 => -80</button>
+        <button style="display: block; margin: 10px 0;" onclick="add10_m80()">10 => -80</button>
+        <button style="display: block;" onclick="opac()">Полупрозрачные блоки</button>
     </main>
 
     <footer>
