@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    let div1 = document.getElementById('todayvalue');
+                    let st1 = div1.style
+                    st1.width = '380px';
+                    st1.height = '140px';
+                    st1.border = '7px rgb(223, 146, 233) solid';
+                    st1.boxShadow = '10px 5px 5px rgb(223, 146, 233, 0.8)';
+                    st1.backgroundColor = 'rgb(255, 170, 43)';
+                    st1.color = 'white';
+                    st1.lineHeight = '34px'
+                    st1.borderRadius = '10px';
+                    st1.textAlign = 'center';
+                    st1.fontWeight = 'bold';
+                    st1.fontFamily = 'Helvetica, sans-serif';
+                    div1.addEventListener('mouseenter', function() {
+                        this.style.boxShadow = '10px 5px 5px rgb(69, 69, 69)';
+                        this.style.transition = '0.7s';
+                        this.style.backgroundColor = 'black';
+                    });
+                    div1.addEventListener('mouseleave', function() {
+                        this.style.boxShadow = '10px 5px 5px rgb(223, 146, 233, 0.8)';
+                        this.style.backgroundColor = 'rgb(255, 170, 43)';
+                    });
+
+                    let trimDate = json.Date.substring(0, 10);
+                    let diff = (json.Valute.EUR.Value - json.Valute.EUR.Previous).toFixed(4);
+                    let diff2;
+                    if(diff < 0) {
+                        diff2 = 'курс опустился';
+
+                    }
+                    else if(diff > 0) {
+                        diff2 = 'курс поднялся';
+                    }
+                    else {
+                        diff2 = 'курс не изменился';
+                    }
+
+                    div1.innerHTML = `Текущий курс евро: ${json.Valute.EUR.Value} руб.
+                        <br>Дата обращения: ${trimDate}
+                        <br>Курс за прошлую дату: ${json.Valute.EUR.Previous} руб.
+                        <br>Разница: ${diff}, т.е. ${diff2}`;
+                })
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <a href="https://www.cbr-xml-daily.ru/">API для курсов ЦБ РФ</a><br>
+        <button style="margin: 10px 0;" onclick="getEuroExchangeRate()">Получить курс евро</button>
+        <div id="todayvalue"></div>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
