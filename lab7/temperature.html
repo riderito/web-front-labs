@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Температура в Новосибирске</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function getTemperature() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+            fetch(url)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+
+                    let today = document.getElementById('cont');
+                    today.style.display = 'block';
+
+                    let value8 = document.getElementById('value8');
+                    let value12 = document.getElementById('value12');
+                    let value20 = document.getElementById('value20');
+
+                    const blocks = document.querySelectorAll('.www');
+                    blocks.forEach(www => {
+                        www.style.display = 'block';
+                    });
+
+                    value8.innerText = 'Температура в 8 часов утра: ' + json.hourly.temperature_2m[8] + '°C';
+                    value12.innerText = 'Температура в 12 часов дня: ' + json.hourly.temperature_2m[12] + '°C';
+                    value20.innerText = 'Температура в 20 часов вечера: ' + json.hourly.temperature_2m[20] + '°C';
+                })
+        }
+    </script>
+    <style>
+        #today {
+            font-size: 22px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            padding: 20px;
+            text-shadow: 1px 1px 7px rgba(255, 255, 255);
+        }
+        .www {
+            text-align: center;
+            background-color: black;
+            border-radius: 14px;
+            color: white;
+            width: 410px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 16px;
+            text-transform: uppercase;
+            padding: 5px;
+            font-weight: bold;
+            margin: 15px auto;
+            box-shadow: 1px 5px 5px rgba(54, 54, 54, 0.8);
+        }
+        #cont {
+            width: 700px;
+            background-color: rgb(255, 171, 25);
+            border-radius: 20px;
+            height: 300px;
+            box-shadow: 3px 7px 10px rgba(255, 171, 25, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    
+    <main>
+        <button style="margin: 10px 0;" onclick="getTemperature()">Вывести температуру на сегодняшний день</button>
+        <div style="display: none;" id="cont">
+            <div id="today">Температура в Новосибирске на сегодня:</div>
+            <div class="www" id="value8"></div>
+            <div class="www" id="value12"></div>
+            <div class="www" id="value20"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
