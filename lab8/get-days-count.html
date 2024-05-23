@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Степук Алексей Витальевич. Число дней с даты рождения</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script src="get-days-count.js"></script>
+    <style>
+        .inputdate {
+            color: rgb(255, 255, 255);
+            background-color: rgb(255, 85, 85);
+            width: 30%;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .forbut {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        #ddd {
+            background-color: black;
+            color: white;
+        }
+        .but {
+            background-color: black;
+            color: white;
+            padding: 7px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+    </header>
+    
+    <main>
+        <div class="inputdate">
+            <label>Дата рождения: <input id="ddd" type="date"></label>
+        </div>
+        <div style="width: 30%; text-align: center;">
+            <div class="forbut">
+                <button class="but" onclick="showDaysCount()">Показать число дней</button>
+            </div>
+            <div class="forbut">
+                <button class="but" onclick="clearArea()">Очистить</button>
+            </div>
+        </div>
+        <div style="opacity: 0;" class="inputdate" id="output"></div>
+    </main>
+
+    <footer>
+        &copy; Степук Алексей, ФБИ-24, 2 курс, 2024
+    </footer>
+</body>
+</html>
