@@ -10,13 +10,15 @@
     <link rel="icon" href="../favicon-32x32.png">
     <script src="lab8.js"></script>
     <style>
-        .current-date {
-            width: 48%;
+        main div {
             color: white;
             background-color: rgb(63, 37, 86);
             font-weight: bold;
             font-family: Verdana, sans-serif;
             text-align: center;
+        }
+        .current-date {
+            width: 48%;
             padding: 10px;
             margin: 10px auto;
             border: 4px solid rgb(70, 140, 187);
@@ -25,16 +27,41 @@
         #contain {
             width: 320px;
             max-width: 48%;
-            color: white;
-            background-color: rgb(63, 37, 86);
-            font-weight: bold;
-            font-family: Verdana, sans-serif;
-            text-align: center;
             padding: 10px;
             margin: 10px auto;
             border: 4px solid rgb(70, 140, 187);
             border-radius: 5px;
             line-height: 22px;
+        }
+        #inputs {
+            width: 400px;
+            max-width: 48%;
+            padding: 20px;
+            margin: 10px auto;
+            border: 4px solid rgb(70, 140, 187);
+            border-radius: 5px;
+            line-height: 22px;
+        }
+        #inputs div {
+            margin-top: 10px;
+        }
+        #output {
+            opacity: 0;
+            transition: opacity 2s;
+            width: 400px;
+            max-width: 48%;
+            padding: 20px;
+            margin: 0 auto;
+            border: 4px solid rgb(70, 140, 187);
+            border-radius: 5px;
+        }
+        #but {
+            color: white;
+            background-color: rgb(70, 140, 187);
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 5px;
+            border: none;
         }
     </style>
 </head>
@@ -57,6 +84,18 @@
             <div id="current-date"></div>
             <div id="current-day"></div>
         </div>
+
+        <div id="inputs">
+            <div>Введите ваше число</div>
+            <div style="display: inline-block;">День <input type="number" min="1" max="31"
+                id="datenumber" value="" onkeydown="return event.key !== '-';"></div>
+            <div style="display: inline-block;">Месяц <input type="number" min="1" max="12"
+                id="monthnumber" value="" onkeydown="return event.key !== '-';"></div>
+            <div style="display: inline-block;">Год <input style="width: 60px;" type="number"
+                id="yearnumber" value="" onkeydown="return event.key !== '-';"></div>
+            <div><button id="but" onclick="showDay()">День недели</button></div>
+        </div>
+        <div id="output"></div>
     </main>
 
     <footer>

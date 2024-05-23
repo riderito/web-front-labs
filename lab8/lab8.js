@@ -31,3 +31,18 @@ function showCurrent() {
     const weekDays = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
     currentDay.innerHTML = 'День недели: ' + weekDays[day];
 }
+
+function showDay() {
+    let datenumber = parseInt(document.getElementById('datenumber').value);
+    let monthnumber = parseInt(document.getElementById('monthnumber').value);
+    let yearnumber = parseInt(document.getElementById('yearnumber').value);
+
+    let output = document.getElementById('output');
+
+    let ourdate = new Date(yearnumber, monthnumber-1, datenumber);
+    let dayofweek = ourdate.getDay();
+    const weekDays = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+
+    output.style.opacity = '1';
+    output.innerHTML = 'День недели ' + datenumber + '.' + monthnumber + '.' + yearnumber + ': ' + weekDays[dayofweek];
+}
